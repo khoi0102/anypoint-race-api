@@ -3,19 +3,13 @@ http:
   
 anypoint:
   api:
-    id: "19120248"
+    id: "20236336"
   businessGroup: "ae6d7954-6fc2-4f3e-8777-80ff8aabd859"
   portal:
     assetId: anypoint-race-api
     version: "3.2.6"
     timeout: "20000"
-    pages:
-      results:
-        firstToFinish: "90u-n91/Results: First to Finish"
-        fastest: "5sl-367/Results: Fastest"
-        most: "vjf-28f/Results: Perseverance"
-        halloffame: "qz7-40n/Hall of Fame"
-        easterEgg: "cr0-6ca/Results: 2023 Mystery"
+    
 referee:
   host: referee-papi
   port: "8081"
@@ -27,10 +21,4 @@ racedata:
   port: "8081"
   protocol: HTTP
   path: /api
-
-race:
-  expiry: "259200" # seconds
-
-practice:
-  expiry: "259200" # seconds
       
