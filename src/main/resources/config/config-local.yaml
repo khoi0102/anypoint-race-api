@@ -32,6 +32,12 @@ racedata:
   protocol: HTTP
   path: /api
 
+racerdata:
+  host: localhost
+  port: "8094"
+  protocol: HTTP
+  path: /api
+
 race:
   expiry: "600" # seconds
 

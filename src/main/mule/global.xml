@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:referee-process-api="http://www.mulesoft.org/schema/mule/referee-process-api"
-	xmlns:race-data-system-api="http://www.mulesoft.org/schema/mule/race-data-system-api"
-	xmlns:redis="http://www.mulesoft.org/schema/mule/redis" xmlns:sockets="http://www.mulesoft.org/schema/mule/sockets" xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns:os="http://www.mulesoft.org/schema/mule/os" xmlns:oauth="http://www.mulesoft.org/schema/mule/oauth" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:racer-data-system-api="http://www.mulesoft.org/schema/mule/racer-data-system-api" xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+	xmlns:referee-process-api="http://www.mulesoft.org/schema/mule/referee-process-api"
+	xmlns:race-data-system-api="http://www.mulesoft.org/schema/mule/race-data-system-api" xmlns:redis="http://www.mulesoft.org/schema/mule/redis" xmlns:sockets="http://www.mulesoft.org/schema/mule/sockets" xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns:os="http://www.mulesoft.org/schema/mule/os" xmlns:oauth="http://www.mulesoft.org/schema/mule/oauth" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/oauth http://www.mulesoft.org/schema/mule/oauth/current/mule-oauth.xsd
 http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd
@@ -11,7 +11,8 @@ http://www.mulesoft.org/schema/mule/sockets http://www.mulesoft.org/schema/mule/
 http://www.mulesoft.org/schema/mule/redis http://www.mulesoft.org/schema/mule/redis/current/mule-redis.xsd
 http://www.mulesoft.org/schema/mule/race-data-system-api http://www.mulesoft.org/schema/mule/race-data-system-api/current/mule-race-data-system-api.xsd
 http://www.mulesoft.org/schema/mule/referee-process-api http://www.mulesoft.org/schema/mule/referee-process-api/current/mule-referee-process-api.xsd
-http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/racer-data-system-api http://www.mulesoft.org/schema/mule/racer-data-system-api/current/mule-racer-data-system-api.xsd">
 	<global-property doc:name="Global Property" doc:id="7856bb19-6f24-4ce3-94db-c749613205a6" name="mule.env" value="local" />
 	<configuration-properties doc:name="Configuration properties" doc:id="7dd03197-6465-46dd-87c5-7f709a4dc803" file="config/config-${mule.env}.yaml" />
     <http:listener-config name="httpListenerConfig">
@@ -46,4 +47,5 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 			<vm:queue queueName="official-level5" queueType="PERSISTENT" />
 		</vm:queues>
 	</vm:config>
+	<racer-data-system-api:config name="racerDataSystemAPIConfig" doc:name="Racer Data System API Config" doc:id="6ff50552-3564-4357-bb0a-75ed3145e643" property_username="${anypoint.app.clientId}" property_password="${anypoint.app.clientSecret}" property_host="${racerdata.host}" property_port="${racerdata.port}" property_protocol="${racerdata.protocol}"/>
 </mule>
